@@ -14,7 +14,7 @@
 </td>
   </tr>
  <tr>
- <td>Título<input type="text" name="titulo" value="" size="50"/></td>
+ <td>Tï¿½tulo<input type="text" name="titulo" value="" size="50"/></td>
  
  </tr>
  <tr><td> Action <input type="radio" name="Action" value="Actualizar" /> Actualizar
@@ -32,7 +32,7 @@
 <%!
 public Connection getConnection() throws SQLException {
 String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
-String filePath= "c:\\Apache\\Tomcat\\webapps\\SUCARNET\\data\\datos.mdb";
+String filePath= "c:\\Tomcat8Java7\\webapps\\SUCARNET\\data\\datos.mdb";
 String userName="",password="";
 String fullConnectionString = "jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=" + filePath;
 
@@ -57,15 +57,17 @@ out.write("OK");
       ResultSet rs = st.executeQuery("select * from libros" );
 
       // Ponemos los resultados en un table de html
-      out.println("<table border=\"1\"><tr><td>Num.</td><td>ISBN</td><td>Titulo</td><td>Acción</td></tr>");
+      out.println("<table id='table' border=\"1\"><tr><td>Num.</td><td>ISBN</td><td>Titulo</td><td colspan='2'>Accion</td></tr>");
       int i=1;
       while (rs.next())
       {
-         out.println("<tr>");
+
+         out.println("<tr id='delete'>");
          out.println("<td>"+ i +"</td>");
-         out.println("<td>"+rs.getString("isbn")+"</td>");
+         out.println("<td id ='id'>"+rs.getString("isbn")+"</td>");
          out.println("<td>"+rs.getString("titulo")+"</td>");
-         out.println("<td>"+"Actualizar<br>Eliminar"+"</td>");
+         out.println("<td>"+"<a>Actualizar</a>"+"</td>");
+         out.println("<td><a href='javascript:getId("+i+");'>Eliminar</a></td>");
          out.println("</tr>");
          i++;
       }
@@ -77,3 +79,11 @@ out.write("OK");
 
 %>
  </body>
+ <script>
+ const id = document.getElementById('id').innerText;
+ const eliminar = document.querySelector('.delete');
+function getId(id) {
+    let ISB = table.firstChild.children[id].cells[1].innerText;
+    window.location.href = "http://localhost:8080/SUCARNET/delete.jsp?id="+ISB;
+}
+</script>
