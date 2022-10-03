@@ -20,19 +20,19 @@ String ls_dbdriver = "sun.jdbc.odbc.JdbcOdbcDriver";
 if (ls_action.equals("Crear")) {
 ls_query = " insert into libros (isbn, titulo)";
 ls_query += " values (";
-ls_query += "'" + ls_isbn + "',";
-ls_query += "'" + ls_titulo + "')";
+ls_query += "'" + ls_isbn.trim() + "',";
+ls_query += "'" + ls_titulo.trim() + "')";
 }
  
 if (ls_action.equals("Eliminar")) {
 ls_query = " delete from libros where isbn = ";
-ls_query += "'" + ls_isbn + "'";
+ls_query += "'" + ls_isbn.trim() + "'";
 }
  
 if (ls_action.equals("Actualizar")) {
 ls_query = " update libros";
-ls_query += " set titulo= " + "'" + ls_titulo + "'";
-ls_query += " where isbn = " + "'" + ls_isbn + "'";
+ls_query += " set titulo= " + "'" + ls_titulo.trim() + "'";
+ls_query += " where isbn = " + "'" + ls_isbn.trim() + "'";
 }
  
 /* Paso4) Conexi�n a la base de datos */
@@ -73,6 +73,9 @@ html>
 La siguiente instrucci�n fue ejecutada:
 <br/><br/>
 <%=ls_query%>
+<%=ls_isbn%>
+<%=ls_titulo%>
+<%=ls_action%>
 <br/><br/>
  
 El resultado fue:
