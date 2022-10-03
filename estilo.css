@@ -1,0 +1,27 @@
+body{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url(libros.jpg);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: rgb(100,100,100);
+    
+}
+h1{
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Times New Roman', 'Times', 'serif';
+    color: aliceblue;
+}
+.formulario{
+    font-size: medium;
+}
+input{
+    text-align: center;
+}
+table{
+    color: aliceblue;
+    margin: auto;
+    text-align: center;
+}
