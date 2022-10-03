@@ -32,7 +32,11 @@
 <%!
 public Connection getConnection() throws SQLException {
 String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
+<<<<<<< Updated upstream
 String filePath= "c:\\Apache\\Tomcat8Java7\\webapps\\SUCARNET\\data\\datos.mdb";
+=======
+String filePath= "c:\\Tomcat8Java7\\webapps\\JSPdatos_Grupo06\\data\\datos.mdb";
+>>>>>>> Stashed changes
 String userName="",password="";
 String fullConnectionString = "jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=" + filePath;
 
