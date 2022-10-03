@@ -10,11 +10,7 @@ String ls_action = request.getParameter("Action");
 /* Paso 2) Inicializar variables */
 String ls_result = "Base de datos actualizada...";
 String ls_query = "";
-<<<<<<< Updated upstream
 String filePath= "c:\\Apache\\Tomcat8Java7\\webapps\\SUCARNET\\data\\datos.mdb";
-=======
-String filePath= "c:\\Tomcat8Java7\\webapps\\JSPdatos_Grupo06\\data\\datos.mdb";
->>>>>>> Stashed changes
 String ls_dburl = "jdbc:odbc:Driver={MicroSoft Access Driver (*.mdb)};DBQ="+filePath;
 String ls_usuario = "";
 String ls_password = "";
