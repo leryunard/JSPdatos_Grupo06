@@ -1,0 +1,73 @@
+body{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url(libros.jpg);
+    height: 100%;
+    background-repeat: repeat-y;
+    background-size: 100% 100%;
+    background-color: rgb(100,100,100);
+    
+}
+h1{
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Times New Roman', 'Times', 'serif';
+    color: aliceblue;
+}
+h4{
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Times New Roman', 'Times', 'serif';
+    color: aliceblue;
+}
+h5{
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Times New Roman', 'Times', 'serif';
+    color: rgb(255, 225, 210);
+}
+.formulario{
+    font-size: medium;
+}
+input{
+    text-align: center;
+}
+table{
+    color: aliceblue;
+    margin: auto;
+    text-align: center;
+    border-spacing: 40px;
+}
+  
+  .container{
+    display: grid;
+    grid-template: 40px 40px / 10% 10% 10%;
+    
+    /* AGREGAR ESPACIO ENTRE FILAS Y COLUMNAS */
+    
+    /* Agregar espacios entre columnas con -grid-column-gap- */
+    
+    /* grid-column-gap: 10px; */
+    
+    /* Agregar espacion entre filas con -grid-row-gap- */
+    
+    /* grid-row-gap: 10px; */
+    
+    /* Agregar espacio en tre filas y columnas en una misma sentencia 
+       grid-gap: [espacio entre filas] [espacio entre columnas];
+    */
+    grid-gap: 10px 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  .item{
+    background: rgb(3, 148, 196);
+    border: 1px solid rgb(255, 158, 61);
+    padding: 10px;
+    margin: 0 auto;
+  }
+
+
+

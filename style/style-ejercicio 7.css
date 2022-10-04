@@ -1,0 +1,32 @@
+/* Variables y formatos generales */
+:root {
+    --primarycolor: #7a5c3c;
+    --secondcolor: #b08e6b;
+    --thirdcolor: #e8c39e;
+    --selectioncolor: #f5e1ce;
+    --inversecolor: #ffffff;
+    --degradado: linear-gradient(90deg, var(--thirdcolor), var(--primarycolor));
+}
+
+*::selection {
+    background: var(--selectioncolor);
+    color: white;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    /*Esto es importante*/
+    box-sizing: border-box;
+    color: var(--primarycolor);
+}
+
+/* Formato del contenido */
+body {
+    align-items: center;
+    align-content: center;
+    padding: 10px;
+    margin: 0;
+    background: whitesmoke;
+}

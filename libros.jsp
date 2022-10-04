@@ -1,39 +1,64 @@
-<%@page contentType="text/html" pageEncoding="iso-8859-1" import="java.sql.*,net.ucanaccess.jdbc.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.sql.*,net.ucanaccess.jdbc.*" %>
  <html>
+
  <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <title>Actualizar, Eliminar, Crear registros.</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Actualizar, Eliminar, Crear registros.</title>
+   <link href="style/estilo.css" rel="stylesheet" type="text/css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
  </head>
+
+
  <body>
    <p>
-      <a href="https://www.mozilla.org/es-ES/"><H1>MANTENIMIENTO DE LIBROS</H1></a>.
-      </p>
-<form action="matto.jsp" method="post" name="Actualizar">
- <table>
- <tr>
- <td>ISBN<input type="text" name="isbn" id="isbn" value="" size="40"/>
-</td>
-  </tr>
- <tr>
- <td>Titulo<input type="text" name="titulo" id="titulo" value="" size="50"/></td>
- 
- </tr>
- <tr><td> Action <input type="radio" name="Action" id="actualizar"  value="Actualizar" /> Actualizar
-      <input type="radio" name="Action"  value="Eliminar" /> Eliminar
+      <a href="javascript:location.reload()"><H1>MANTENIMIENTO DE LIBROS</H1></a>.
+      <h4>Esta página contiene los ejercicios 1, 2 y 4, para visualizar los<br>demás por favor utilice el siguiente índice:</h4>    
+
+      <section class="container">
+         <div class="item"><a href="ejercicio 7.jsp"><h5>Ejercicio 3</h5></a></div>
+         <div class="item"><a href="javascript:location.reload()"><h5>Ejercicio 5</h5></a></div>
+         <div class="item"><a href="javascript:location.reload()"><h5>Ejercicio 6</h5></a></div>
+         <div class="item"><a href="javascript:location.reload()"><h5>Ejercicio 7</h5></a></div>
+         <div class="item"><a href="javascript:location.reload()"><h5>Ejercicio 8</h5></a></div>
+         <div class="item"><a href="javascript:location.reload()"><h5>Ejercicio 9</h5></a></div>
+       </section>
+
+      
+   </p>
+   <div class="cuerpo">
+   <form action="matto.jsp" method="post" name="Actualizar"  class="formulario">
+   <div class="form">
+   <table>
+   <tr>
+      <td>ISBN<input type="text" name="isbn" id="isbn" value="" size="40" placeholder="Ingrese ISBN" class="form-control"/>
+      </td>
+   </tr>
+   <tr>
+      <td>Título<input type="text" name="titulo" id="titulo" value="" size="50"placeholder="Ingrese título" id="Titulo" class="form-control"/></td>
+   </tr>
+   <tr>
+      <td>Autor<input type="text" name="autor" value="" size="50" placeholder="Ingrese autor" id="Autor" class="form-control"/></td>
+   </tr>
+   <tr>
+      <td> Seleccione una acción: <input type="radio" name="Action" id="actualizar"  value="Actualizar" /> Actualizar
+      <input type="radio" name="Action" id="eliminar" value="Eliminar" /> Eliminar
       <input type="radio" name="Action"  value="Crear" checked /> Crear
-  </td>
- <td><input type="SUBMIT" value="ACEPTAR" />
-</td>
- </tr>
- </form>
- </tr>
- </table>
- </form>
-<br><br>
+      </td>
+      <td><input type="SUBMIT" value="ACEPTAR"/>
+      </td>
+   </tr>
+   </form>
+   </tr>
+   </table>
+   </div>
+   </form>
+   <br><br>
+<script src="js/libro.js"></script>
+   </div>
 <%!
-public Connection getConnection() throws SQLException {
+public Connection getConnection(String path) throws SQLException {
 String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
-String filePath= "c:\\Apache\\Tomcat8Java7\\webapps\\SUCARNET\\data\\datos.mdb";
+String filePath= path+ "\\datos.mdb";
 String userName="",password="";
 String fullConnectionString = "jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=" + filePath;
 
@@ -51,15 +76,17 @@ System.out.println("Error: " + e);
 }
 %>
 <%
-Connection conexion = getConnection();
+ServletContext context = request.getServletContext();
+String path = context.getRealPath("/data");
+Connection conexion = getConnection(path);
    if (!conexion.isClosed()){
-out.write("OK");
+out.write("");
  
       Statement st = conexion.createStatement();
       ResultSet rs = st.executeQuery("select * from libros" );
 
       // Ponemos los resultados en un table de html
-      out.println("<table border=\"1\"><tr><td>Num.</td><td>ISBN</td><td>Titulo</td><td>Accion</td></tr>");
+      out.println("<table border=\"1\"><tr><td>Núm.</td><td>ISBN</td><td>Título</td><td>Acción</td></tr>");
       int i=1;
       while (rs.next())
       {
@@ -74,12 +101,9 @@ out.write("OK");
            
                <input type='text' name="isbn-<%=i%>" id="isbn-<%=i%>" size='40' value="<%=opcion%>" hidden/>
                <input type='text' name="titulo-<%=i%>" id="titulo-<%=i%>" size='40' value="<%=tituloC%>" hidden/>
-               <input type='button' value='actualizar' onclick='validateFormOnSubmit("<%=i%>")'>
-               <input type='button' value='eliminar' onclick='validateFormOnSubmit("<%=i%>")'>
+               <input type='button' value='Actualizar' onclick='validateFormOnSubmit("<%=i%>")'>
+               <input type='button' value='Eliminar' onclick='validateFormOnSubmit2("<%=i%>")'>
          </td>
-         
-
-
          
       </tr>
    
@@ -106,5 +130,19 @@ out.write("OK");
       document.getElementById('actualizar').checked = true;
 }
 </script>
+
+<script type="text/javascript">
+   MyFunction = function(isbn){
+      alert(isbn)
+   }
+   function validateFormOnSubmit2(theForm) {
+      var str = document.getElementById("isbn-"+theForm).value;
+      var str2 = document.getElementById("titulo-"+theForm).value;
+      document.getElementById('isbn').value = str;
+      document.getElementById('titulo').value = str2;
+      document.getElementById('eliminar').checked = true;
+}
+</script>
+
  </body>
 
