@@ -2,13 +2,13 @@
  <html>
  <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <title>Actualizar, Eliminar, Crear registros.</title>
+ <title>Buscar Libros</title>
  <link href="estilo.css" rel="stylesheet" type="text/css">
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
  </head>
  <body>
 
-<H1>MANTENIMIENTO DE LIBROS</H1>
+<H1>BUSQUEDA DE LIBROS</H1>
 <div class="cuerpo">
 <form action="matto.jsp" method="post" name="Actualizar" class="formulario">
    <div class="form">
@@ -23,9 +23,8 @@
  <tr>
    <td>Autor<input type="text" name="autor" value="" size="50" placeholder="Ingrese autor" id="Autor" class="form-control"/></td>
    </tr>
- <tr><td> Action <input type="radio" name="Action" value="Actualizar" /> Actualizar
- <input type="radio" name="Action" value="Eliminar" /> Eliminar
- <input type="radio" name="Action" value="Crear" checked /> Crear
+ <tr><td>Action 
+ <input type="radio" name="Action" value="Buscar" checked /> Buscar
   </td>
  <td><input type="SUBMIT" value="ACEPTAR" disabled id="Aceptar"/>
 </td>
@@ -57,17 +56,18 @@ System.out.println("Error: " + e);
     return conn;
 }
 %>
-ServletContext context = request,getServletContext();
+<%
+ServletContext context = request.getServletContext();
 String path = context.getRealPath("/data");
 Connection conexion = getConnection(path);
-   if (!conexion.isClosed()){
+   /*if (!conexion.isClosed()){
 out.write("OK");
  
       Statement st = conexion.createStatement();
       ResultSet rs = st.executeQuery("select * from libros" );
 
       // Ponemos los resultados en un table de html
-      out.println("<table border=\"1\"><tr><td>Num.</td><td>ISBN</td><td>Titulo</td>><td>Autor</td><td>Acci�n</td></tr>");
+      out.println("<table border=\"1\"><tr><td>Num.</td><td>ISBN</td><td>Titulo</td>><td>Autor</td></tr>");
       int i=1;
       while (rs.next())
       {
@@ -76,7 +76,6 @@ out.write("OK");
          out.println("<td>"+rs.getString("isbn")+"</td>");
          out.println("<td>"+rs.getString("titulo")+"</td>");
          out.println("<td>"+rs.getString("autor")+"</td>");
-         out.println("<td>"+"Actualizar<br>Eliminar"+"</td>");
          out.println("</tr>");
          i++;
       }
@@ -84,6 +83,6 @@ out.write("OK");
 
       // cierre de la conexion
       conexion.close();
-}
+}*/
 %>
  </body>
