@@ -65,7 +65,7 @@ ls_result += " <br/>" + e.toString();
 }
 }
 %>
-html>
+
 <html>
 <head><title>Updating a Database</title></head>
 <body>
