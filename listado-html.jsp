@@ -1,7 +1,7 @@
 <%@page pageEncoding="UTF-8" import="java.io.*,java.sql.*,java.servlet.*,net.ucanaccess.jdbc.*"%> <%
 response.setStatus(200);
 response.setContentType("application/vnd.ms-excel");
-response.setHeader("Content-Disposition","attachment; filename=" + "listado.csv" );
+response.setHeader("Content-Disposition","attachment; filename=" + "listadoLibros.html" );
     ServletContext context = request.getServletContext();
     String path = context.getRealPath("/data");
     Connection conexion = getConnection(path);

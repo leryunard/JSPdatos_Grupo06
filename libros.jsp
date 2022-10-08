@@ -12,15 +12,18 @@
  <body>
    <p>
       <a href="javascript:location.reload()"><H1>MANTENIMIENTO DE LIBROS</H1></a>.
-      <h4>Esta página contiene los ejercicios 1, 2 y 4, para visualizar los<br>demás por favor utilice el siguiente índice:</h4>    
+      <h4>Esta página contiene el ejercicio 9, para visualizar los<br>demás por favor utilice el siguiente índice:</h4>    
 
       <section class="container">
+ <div class="item"><a href="javascript:location.reload()"><h5>Ejercicio 1</h5></a></div>
+ <div class="item"><a href="javascript:location.reload()"><h5>Ejercicio 2</h5></a></div>
          <div class="item"><a href="ejercicio 7.jsp"><h5>Ejercicio 3</h5></a></div>
+ <div class="item"><a href="javascript:location.reload()"><h5>Ejercicio 4</h5></a></div>
          <div class="item"><a href="javascript:location.reload()"><h5>Ejercicio 5</h5></a></div>
          <div class="item"><a href="javascript:location.reload()"><h5>Ejercicio 6</h5></a></div>
          <div class="item"><a href="javascript:location.reload()"><h5>Ejercicio 7</h5></a></div>
          <div class="item"><a href="javascript:location.reload()"><h5>Ejercicio 8</h5></a></div>
-         <div class="item"><a href="javascript:location.reload()"><h5>Ejercicio 9</h5></a></div>
+     
        </section>
 
       
@@ -42,7 +45,27 @@
    <tr>
       <a href=”listado-csv.jsp” download=”listado.csv”>Descargar Listado</a>
    </tr>
+<br>
+<br>
    <tr>
+      <a href=”listado-txt.jsp” download=”listado.txt”>Descargar listado en texto plano (TXT)</a>
+   </tr>
+   <tr>
+<br>
+<br>
+   <tr>
+      <a href=”listado-xml.jsp” download=”listado.xml”>Descargar listado en formato XML</a>
+   </tr>
+<br>
+<br>
+   <tr>
+      <a href=”listado-json.jsp” download=”listado.json”>Descargar listado en formato JSON</a>
+   </tr>
+<br>
+<br>
+   <tr>
+      <a href=”listado-html.jsp” download=”listado.html”>Descargar listado en formato HTML</a>
+   </tr>
       <td> Seleccione una acción: <input type="radio" name="Action" id="actualizar"  value="Actualizar" /> Actualizar
       <input type="radio" name="Action" id="eliminar" value="Eliminar" /> Eliminar
       <input type="radio" name="Action"  value="Crear" checked /> Crear
